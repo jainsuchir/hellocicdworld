@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="97bd59f2-addd-4583-b6ae-8eaded27c56e" >
+		<http:listener-connection host="0.0.0.0" port="8082" />
+	</http:listener-config>
+	<flow name="hellocicdworldFlow" doc:id="84be76c5-de32-420c-aa14-defd42ebaa61" >
+		<http:listener doc:name="Listener" doc:id="ceca45d9-f2e7-404c-a073-6620ad952d10" config-ref="HTTP_Listener_config" path="/azureDemo"/>
+		<set-payload value='#["Hello Azure from Mulesoft CICD"]' doc:name="Set Payload" doc:id="34dc9b0c-6a84-4c51-8925-55df03aa259b" />
+		<logger level="INFO" doc:name="Logger" doc:id="57596a7d-887b-4f3f-a289-b298e3dcb4c4" />
+	</flow>
+</mule>
