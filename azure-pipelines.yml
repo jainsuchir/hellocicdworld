@@ -30,7 +30,7 @@ steps:
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
-    goals: 'package -s $(MAVEN_OPTS)'
+    goals: 'package'
 
 - task: PublishPipelineArtifact@1
   inputs:
