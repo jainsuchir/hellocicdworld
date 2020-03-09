@@ -20,11 +20,6 @@ steps:
     path: $(MAVEN_CACHE_FOLDER)
   displayName: Cache Maven local repo
   
-- task: DownloadSecureFile@1
-  displayName: Download secure file
-  name: settings
-  inputs:
-    secureFile: 'settings.xml'
 
 - task: Maven@3
   inputs:
@@ -39,5 +34,6 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: $(System.DefaultWorkingDirectory)
+    targetPath: '$(System.DefaultWorkingDirectory)'
     artifact: 'drop'
+    publishLocation: 'pipeline'
