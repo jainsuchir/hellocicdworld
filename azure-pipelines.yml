@@ -30,7 +30,7 @@ steps:
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
-    goals: 'package mule:deploy '
+    goals: 'clean deploy -P deploy-cloudhub-dev -Danypoint.username=sjain332 -Danypoint.password=Sj6733*# -Denv=Sandbox -s settings.xml -e'
 
 - task: PublishPipelineArtifact@1
   inputs:
