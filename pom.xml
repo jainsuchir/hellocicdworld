@@ -59,7 +59,7 @@
                     <plugin>
                         <groupId>org.mule.tools.maven</groupId>
                         <artifactId>mule-maven-plugin</artifactId>
-                        <version>3.3.2<</version>
+                        <version>3.3.2</version>
                         <configuration>
 			<cloudHubDeployment>
                             <deploymentType>cloudhub</deploymentType>
