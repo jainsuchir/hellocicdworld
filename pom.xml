@@ -61,6 +61,7 @@
                         <artifactId>mule-maven-plugin</artifactId>
                         <version>2.2.1</version>
                         <configuration>
+			<cloudHubDeployment>
                             <deploymentType>cloudhub</deploymentType>
                             <!-- muleVersion is the runtime version as it appears on the CloudHub interface -->
                             <muleVersion>4.2.1</muleVersion>
@@ -73,6 +74,7 @@
                             <workerType>Micro</workerType>
                             <workers>1</workers>
 			    <uri>https://anypoint.mulesoft.com</uri>  
+			</cloudHubDeployment>
                         </configuration>
                         <executions>
                             <execution>
