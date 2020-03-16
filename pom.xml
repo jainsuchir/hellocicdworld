@@ -23,7 +23,7 @@
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
-				<version>${mule.maven.plugin.version}</version>
+				<version>3.3.2</version>
 				<extensions>true</extensions>
 				<configuration>
 				</configuration>
@@ -59,7 +59,7 @@
                     <plugin>
                         <groupId>org.mule.tools.maven</groupId>
                         <artifactId>mule-maven-plugin</artifactId>
-                        <version>2.2.1</version>
+                        <version>3.3.2<</version>
                         <configuration>
 			<cloudHubDeployment>
                             <deploymentType>cloudhub</deploymentType>
