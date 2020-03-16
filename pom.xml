@@ -31,6 +31,63 @@
 		</plugins>
 	</build>
 
+    <profiles>
+        <!--this will be the propfile to deploy your app to cloudhub-->
+        <profile>
+            <id>deploy-cloudhub-dev</id>
+            <build>
+                <finalName>${project.artifactId}-${scmBranch}-r${buildNumber}</finalName>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>buildnumber-maven-plugin</artifactId>
+                        <version>1.4</version>
+                        <executions>
+                            <execution>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>create</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <doCheck>true</doCheck>
+                            <doUpdate>false</doUpdate>
+                            <shortRevisionLength>7</shortRevisionLength>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.mule.tools.maven</groupId>
+                        <artifactId>mule-maven-plugin</artifactId>
+                        <version>2.2.1</version>
+                        <configuration>
+                            <deploymentType>cloudhub</deploymentType>
+                            <!-- muleVersion is the runtime version as it appears on the CloudHub interface -->
+                            <muleVersion>4.2.1</muleVersion>
+                            <username>sjain332</username>
+                            <password>Sj6733*#</password>
+                            <redeploy>true</redeploy>
+                            <environment>Sandbox</environment>
+                            <applicationName>hellocicdworld</applicationName>
+                            <region>ap-southeast-2</region>
+                            <workerType>Micro</workerType>
+                            <workers>1</workers>
+			    <uri>https://anypoint.mulesoft.com</uri>  
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>deploy</id>
+                                <phase>deploy</phase>
+                                <goals>
+                                    <goal>deploy</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 	<dependencies>
         <dependency>
             <groupId>org.mule.connectors</groupId>
@@ -59,6 +116,17 @@
             <url>https://repository.mulesoft.org/releases/</url>
             <layout>default</layout>
         </repository>
+<repository>
+  <id>sjain332</id>
+  <url>https://pkgs.dev.azure.com/sjain332/_packaging/sjain332/maven/v1</url>
+  <releases>
+    <enabled>true</enabled>
+  </releases>
+  <snapshots>
+    <enabled>true</enabled>
+  </snapshots>
+</repository>
+
     </repositories>
     <pluginRepositories>
         <pluginRepository>
