@@ -30,7 +30,7 @@ steps:
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
-    goals: 'package'
+    goals: 'package mule:deploy '
 
 - task: PublishPipelineArtifact@1
   inputs:
